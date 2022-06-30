@@ -24,6 +24,14 @@
       <set name="simulation/do_simple_trim" value="2"/>
       <notify/>
     </event>
+
+    <event name="Wind" continuous="true">
+      <condition>simulation/sim-time-sec ge 0.01</condition>
+      <set name="atmosphere/wind-mag-fps" value="20.0"/>
+      <set name="atmosphere/psiw-rad" value="0.0"/>
+      <notify/>
+    </event>
+
   </run>
 
 </runscript>
