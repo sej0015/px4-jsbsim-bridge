@@ -27,8 +27,17 @@
 
     <event name="Wind" continuous="true">
       <condition>simulation/sim-time-sec ge 0.01</condition>
-      <set name="atmosphere/wind-mag-fps" value="20.0"/>
+      <set name="atmosphere/wind-mag-fps" value="0.0"/>
       <set name="atmosphere/psiw-rad" value="0.0"/>
+      <notify/>
+    </event>
+
+    <event name="Thermal" continuous="true">
+      <condition>simulation/sim-time-sec ge 0.01</condition>
+      <set name="atmosphere/thermal_conv_velo_scale" value="10.0"/>
+      <set name="atmosphere/thermal_conv_layer_thickness" value="300"/>
+      <set name="atmosphere/thermal_area_width" value="300"/>
+      <set name="atmosphere/thermal_area_height" value="300"/>
       <notify/>
     </event>
 
