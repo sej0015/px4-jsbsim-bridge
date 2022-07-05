@@ -12,14 +12,14 @@
 
 
   <!-- Start an output TCP socket on port 1138 -->
-  <output name="localhost" type="SOCKET" port="1138" rate="20">
-    <simulation> ON </simulation>
+  <output name="localhost" type="SOCKET" port="1138" protocol="UDP" rate="5">
+    <simulation> OFF </simulation>
     <atmosphere> ON </atmosphere>
     <massprops> OFF</massprops>
-    <rates> ON </rates>
+    <rates> OFF </rates>
     <velocities> OFF </velocities>
-    <forces> ON </forces>
-    <moments> ON </moments>
+    <forces> OFF </forces>
+    <moments> OFF </moments>
     <position> OFF </position>
     <propulsion> OFF </propulsion>
     <aerosurfaces> OFF </aerosurfaces>
