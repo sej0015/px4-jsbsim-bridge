@@ -11,23 +11,48 @@
   <use aircraft="Rascal"/>
 
 
-  <!-- Start an output TCP socket on port 1138 -->
+  <!-- Start an output UDP socket on port 1138 -->
   <output name="localhost" type="SOCKET" port="1138" protocol="UDP" rate="5">
-    <simulation> OFF </simulation>
-    <atmosphere> ON </atmosphere>
-    <massprops> OFF</massprops>
-    <rates> OFF </rates>
-    <velocities> OFF </velocities>
-    <forces> OFF </forces>
-    <moments> OFF </moments>
-    <position> OFF </position>
-    <propulsion> OFF </propulsion>
-    <aerosurfaces> OFF </aerosurfaces>
-    <fcs> OFF </fcs>
-    <ground_reactions> OFF </ground_reactions>
-    <coefficients> OFF </coefficients>
-    <property caption="Aileron Command (0-1)"> fcs/aileron-cmd-norm </property>
+    <simulation>        OFF </simulation>
+    <atmosphere>        ON  </atmosphere> <!-- Only Want the atmosphere data and parameters -->
+    <massprops>         OFF </massprops>
+    <rates>             OFF </rates>
+    <velocities>        OFF </velocities>
+    <forces>            OFF </forces>
+    <moments>           OFF </moments>
+    <position>          OFF </position>
+    <propulsion>        OFF </propulsion>
+    <aerosurfaces>      OFF </aerosurfaces>
+    <fcs>               OFF </fcs>
+    <ground_reactions>  OFF </ground_reactions>
+    <coefficients>      OFF </coefficients>
+    <thermals>          OFF </thermals>
+    <property caption="Conv Velo Scale"> atmosphere/thermal_conv_velo_scale </property>
+    <property caption="Conv Velo Scale"> atmosphere/thermal_conv_velo_scale_std </property>
+    <property caption="Conv Velo Scale"> atmosphere/thermal_conv_layer_thickness </property>
+    <property caption="Conv Velo Scale"> atmosphere/thermal_conv_layer_thickness_std </property>
+    <property caption="Conv Velo Scale"> atmosphere/thermal_area_width </property>
+    <property caption="Conv Velo Scale"> atmosphere/thermal_area_height </property>
   </output>
+
+    <!-- Start an output UDP socket on port 1139 -->
+  <output name="localhost" type="SOCKET" port="1139" protocol="UDP" rate="1">
+    <simulation>        OFF </simulation>
+    <atmosphere>        OFF  </atmosphere>
+    <massprops>         OFF </massprops>
+    <rates>             OFF </rates>
+    <velocities>        OFF </velocities>
+    <forces>            OFF </forces>
+    <moments>           OFF </moments>
+    <position>          OFF </position>
+    <propulsion>        OFF </propulsion>
+    <aerosurfaces>      OFF </aerosurfaces>
+    <fcs>               OFF </fcs>
+    <ground_reactions>  OFF </ground_reactions>
+    <coefficients>      OFF </coefficients>
+    <thermals>          ON </thermals>  <!-- Only Want the thermal data and -->
+  </output>
+
 
   <run start="0" end="10000000" dt="0.001">
     <property value="0"> simulation/notify-time-trigger </property>
@@ -53,10 +78,12 @@
 
     <event name="Thermal" continuous="true">
       <condition>simulation/sim-time-sec ge 0.01</condition>
-      <set name="atmosphere/thermal_conv_velo_scale" value="10.0"/>
-      <set name="atmosphere/thermal_conv_layer_thickness" value="300"/>
-      <set name="atmosphere/thermal_area_width" value="300"/>
-      <set name="atmosphere/thermal_area_height" value="300"/>
+      <set name="atmosphere/thermal_conv_velo_scale" value="8.0"/>
+      <set name="atmosphere/thermal_conv_velo_scale_std" value="0.0"/>
+      <set name="atmosphere/thermal_conv_layer_thickness" value="4200"/>
+      <set name="atmosphere/thermal_conv_layer_thickness_std" value="0.0"/>
+      <set name="atmosphere/thermal_area_width" value="3000"/>
+      <set name="atmosphere/thermal_area_height" value="3000"/>
       <notify/>
     </event>
 
