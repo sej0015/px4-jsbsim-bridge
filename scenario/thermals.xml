@@ -5,11 +5,10 @@
     name="Testing Template">
 
   <description>
-    test ArduPlane using Rascal110 and JSBSim
+    test ArduPlane using SBXC and JSBSim
   </description>
 
-  <use aircraft="Rascal"/>
-
+  <use aircraft="SBXC"/>
 
   <!-- Start an output UDP socket on port 1138 -->
   <output name="localhost" type="SOCKET" port="1138" protocol="UDP" rate="5">
@@ -95,12 +94,12 @@
 
     <event name="Thermal" continuous="true">
       <condition>simulation/sim-time-sec ge 0.01</condition>
-      <!-- <set name="atmosphere/thermal_conv_velo_scale" value="2.56"/> -->
-      <!-- <set name="atmosphere/thermal_conv_velo_scale_std" value="0.0"/> -->
-      <!-- <set name="atmosphere/thermal_conv_layer_thickness" value="1400"/> -->
-      <!-- <set name="atmosphere/thermal_conv_layer_thickness_std" value="0.0"/> -->
-      <!-- <set name="atmosphere/thermal_area_width" value="1600"/> -->
-      <!-- <set name="atmosphere/thermal_area_height" value="1600"/> -->
+      <set name="atmosphere/thermal_conv_velo_scale" value="2.56"/> <!-- m/s -->
+      <set name="atmosphere/thermal_conv_velo_scale_std" value="0.0"/>
+      <set name="atmosphere/thermal_conv_layer_thickness" value="1400"/> <!-- Meters -->
+      <set name="atmosphere/thermal_conv_layer_thickness_std" value="0.0"/>
+      <set name="atmosphere/thermal_area_width" value="1600"/> <!-- meters -->
+      <set name="atmosphere/thermal_area_height" value="1600"/> <!-- meters -->
       <notify/>
     </event>
 

@@ -2,7 +2,7 @@
 <initialize name="Zurich">
   <latitude type="geodetic" unit="DEG"> 47.458159 </latitude>
   <longitude unit="DEG"> 8.548004 </longitude>
-  <altitude unit="M"> 0.0 </altitude>
+  <altitude unit="M"> 0.1 </altitude>
   <elevation unit="M"> 419.2 </elevation>
   <vt unit="FT/SEC">      5.0 </vt>
   <gamma unit="DEG">      0.0 </gamma>
